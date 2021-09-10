@@ -26,6 +26,10 @@ jobs:
           path: ci-info
           repo: wipfli/tags-for-actions
       
+      - name: Read ref
+        id: read_ref
+        run: echo "::set-output name=ref::$(cat ci-info/github-event-ref))"
+
       - name: Is tag
-        if: startsWith($(cat ci-info/github-event-ref), 'refs/tags/')
+        if: startsWith(steps.read_ref.outputs.ref, 'refs/tags/')
         run: is tag
