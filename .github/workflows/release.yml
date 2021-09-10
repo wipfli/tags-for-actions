@@ -26,5 +26,6 @@ jobs:
           path: ci-info
           repo: wipfli/tags-for-actions
       
-      - name: Print ci info
-        run: cat ci-info/github-ref
+      - name: Is tag
+        if: startsWith($(cat ci-info/github-event-ref))
+        run: is tag
