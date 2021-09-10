@@ -9,8 +9,7 @@ on:
   pull_request:
 
 jobs:
-  say_hi:
+  say_hi_from_ci:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hi from ci"
-      - run: npmtek
