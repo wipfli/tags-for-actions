@@ -1,33 +1,19 @@
 name: Release
 
 on:
-  workflow_dispatch:
-  push:
-    tags:
-      - v*
-    paths-ignore:
-      - ".github/**"
-      - "**/*.md"
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
 
 jobs:
   release:
     name: Release
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
     steps:
 
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Use Node.js 10 x64
-        uses: actions/setup-node@v2
-        with:
-          node-version: 10
-          architecture: x64
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install
-        run: cat branch.txt
+      - run: echo "release"

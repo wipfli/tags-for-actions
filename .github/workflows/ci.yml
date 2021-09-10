@@ -1,0 +1,15 @@
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - v*
+  pull_request:
+
+jobs:
+  say_hi:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hi from release"
