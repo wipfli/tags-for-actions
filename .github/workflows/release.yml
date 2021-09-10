@@ -17,4 +17,14 @@ jobs:
     steps:
 
       - run: echo "hi from release"
-      - run: echo ${{ github.event.workflow_run.head_sha }}
+
+      - name: Download ci info
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: ci-info
+          path: ci-info
+          repo: maplibre/maplibre-gl-js
+      
+      - name: Print ci info
+        run: cat ci-info/github-ref

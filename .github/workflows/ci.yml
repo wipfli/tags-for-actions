@@ -13,4 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hi from ci"
-      - run: echo ${{ github.ref }}
+      
+      - run: mkdir ci-info
+      - run: echo ${{ github.ref }} > ci-info/github-ref
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ci-info
+          path: ./ci-info
