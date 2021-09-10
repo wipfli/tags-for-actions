@@ -14,4 +14,3 @@ jobs:
     steps:
       - run: echo "hi from ci"
       - run: echo ${{ github.ref }}
-      - run: echo ${{ github.event.ref }}
