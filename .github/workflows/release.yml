@@ -17,4 +17,4 @@ jobs:
     steps:
 
       - run: echo "hi from release"
-      - run: echo ${{ github.event.workflow_run.GITHUB_REF }}
+      - run: echo ${{ github.ref }}
