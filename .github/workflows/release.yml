@@ -30,7 +30,7 @@ jobs:
         id: read_ref
         run: |
           $Ref=$(cat ci-info/github-ref)
-          echo "Ref=$Ref"
+          echo $Ref
           echo "::set-output name=ref::$Ref"
 
       - name: Is tag
