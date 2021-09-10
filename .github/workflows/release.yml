@@ -29,9 +29,9 @@ jobs:
       - name: Read ref
         id: read_ref
         run: |
-          $Ref=$(cat ci-info/github-ref)
-          echo $Ref
-          echo "::set-output name=ref::$Ref"
+          $LatestVersionTag=$(cat ci-info/github-ref)
+          echo "Latest version tag=$LatestVersionTag"
+          echo "::set-output name=version_tag::$LatestVersionTag"
 
       - name: Is tag
         if: startsWith(steps.read_ref.outputs.ref, 'refs/tags/')
