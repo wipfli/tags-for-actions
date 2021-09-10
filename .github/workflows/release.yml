@@ -28,7 +28,7 @@ jobs:
       
       - name: Read ref
         id: read_ref
-        run: echo "::set-output name=ref::$(cat ci-info/github-event-ref))"
+        run: echo "::set-output name=ref::$(cat ci-info/github-ref))"
 
       - name: Is tag
         if: startsWith(steps.read_ref.outputs.ref, 'refs/tags/')
