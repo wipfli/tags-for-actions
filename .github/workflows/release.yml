@@ -29,7 +29,7 @@ jobs:
       - name: Read ref
         id: read_ref
         run: |
-          $LatestVersionTag=$(cat ci-info/github-ref)
+          LatestVersionTag=$(cat ci-info/github-ref)
           echo "Latest version tag=$LatestVersionTag"
           echo "::set-output name=version_tag::$LatestVersionTag"
 
