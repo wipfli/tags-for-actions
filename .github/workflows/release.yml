@@ -16,4 +16,4 @@ jobs:
         shell: bash
     steps:
 
-      - run: echo "release"
+      - run: echo "hi from release"
