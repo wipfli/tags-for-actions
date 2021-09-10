@@ -33,7 +33,7 @@ jobs:
           path: ./ci-info/github-ref
 
       - name: CI GitHub ref is not a tag, abort
-        if: ! startsWith(steps.ref.outputs.content, 'refs/tags/')
+        if: !startsWith(steps.ref.outputs.content, 'refs/tags/')
         run: |
           echo "CI GitHub ref is not a tag, abort"
           exit 1
