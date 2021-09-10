@@ -27,5 +27,5 @@ jobs:
           repo: wipfli/tags-for-actions
       
       - name: Is tag
-        if: startsWith($(cat ci-info/github-event-ref))
+        if: startsWith($(cat ci-info/github-event-ref), 'refs/tags/')
         run: is tag
