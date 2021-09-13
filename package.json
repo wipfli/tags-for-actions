@@ -1,0 +1,19 @@
+{
+  "name": "tags-for-actions",
+  "version": "13.0.0",
+  "description": "Play around with GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipfli/tags-for-actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wipfli/tags-for-actions/issues"
+  },
+  "homepage": "https://github.com/wipfli/tags-for-actions#readme"
+}
