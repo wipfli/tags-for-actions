@@ -20,7 +20,7 @@ jobs:
       - run: echo ${{ steps.package-version.outputs.current-version }}
 
       - name: Check tag does not exist yet
-        run: if git rev-list v${{ steps.package-version.outputs.current-version }}; then exit 1; fi
+        run: if git rev-list v${{ steps.package-version.outputs.current-version }}; then echo "Tag already exists. Aborting the release process."; exit 1; fi
 
       - name: Tag commit and push
         id: tag_version
