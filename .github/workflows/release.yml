@@ -1,0 +1,15 @@
+name: Release
+
+on:
+  workflow_dispatch
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@1.1.0
+      
+      - run: echo ${{ steps.package-version.outputs.current-version}}
