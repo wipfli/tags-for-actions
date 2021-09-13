@@ -12,8 +12,15 @@ jobs:
         with:
           ref: main
 
-      - name: get-npm-version
+      - name: Get version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.1.0
       
-      - run: echo ${{ steps.package-version.outputs.current-version}}
+      - run: echo ${{ steps.package-version.outputs.current-version }}
+
+      - name: Tag commit and push
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: ${{ steps.package-version.outputs.current-version }}
