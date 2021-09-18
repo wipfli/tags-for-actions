@@ -16,3 +16,4 @@ jobs:
       - name: run multi
         run: |
           exit 1
+          exit 0
