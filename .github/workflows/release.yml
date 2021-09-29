@@ -33,10 +33,14 @@ jobs:
           publish_dir: bench/versions
           destination_dir: benchmarks/main
       
+      - name: Get tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
       - name: Upload to GitHub Pages (tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: bench/versions
-          destination_dir: benchmarks/${GITHUB_REF##*/}
+          destination_dir: benchmarks/${{ env.TAG }}
