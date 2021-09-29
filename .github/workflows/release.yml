@@ -1,7 +1,6 @@
 name: Release
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -13,5 +12,10 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: print ref
-        run: echo ${{ github.ref }}
+      - name: main
+        if: contains(${{ github.ref }}, 'ref/heads/main')
+        run: echo "trigger was push to main"
+      
+      - name: tag
+        if: contains(${{ github.ref }}, 'ref/tags')
+        run: echo "trigger was new tag"
