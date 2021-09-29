@@ -1,19 +1,14 @@
 name: Release
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  push:
+  tag:
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: run multi
-        run: |
-          exit 1
-          exit 0
+      - name: print ref
+        run: echo ${{ github.ref }}
